@@ -31,7 +31,7 @@ module.exports ={
 
         🔊 | 음성 채널: ${message.guild.channels.cache.filter(x => x.type === "voice").size}개`)
     .setThumbnail(message.guild.iconURL())
-    .setColor('#ffffff')
+    .setColor('RANDOM')
     .setFooter(`${message.author.username}`, message.author.displayAvatarURL())
     message.channel.send(server)
     }

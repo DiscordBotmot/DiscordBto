@@ -1,6 +1,7 @@
 const weather = require('weather-js');
 
 const Discord = require('discord.js');
+const { random } = require('mathjs');
 
 module.exports = {
     name: "날씨",
@@ -22,7 +23,7 @@ module.exports = {
             .setDescription(`**${current.skytext}**`)
             .setAuthor(`${current.observationpoint}의 날씨 정보 입니다`)
             .setThumbnail(current.imageUrl)
-            .setColor(0x111111)
+            .setColor('RANDOM')
             .addField('시간 종류', `GMT-${location.timezone}`, true)
             .addField('온도 타입', '섭씨', true)
             .addField('온도', `${current.temperature}°`, true)

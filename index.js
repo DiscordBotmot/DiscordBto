@@ -35,14 +35,13 @@ client.on('message', message => {
     try{ 
       let content = message.content.slice(`${prefix}전송` .length);
       const embed = new Discord.MessageEmbed()
-      .setTitle("📌 | 디엠도착")
-      .setDescription(content)
+      .setTitle("⛔ㅣ답변하지 마세요",)
       .addField(`${user.username}님에게 개인메시지가 도착했습니다!`, `전송자 ${message.author.username}`)
-      .setFooter(user.tag)
+      .setDescription(content)
       .setTimestamp()
       .setColor('RANDOM')
       user.send(embed)
-      message.channel.send("메시지를 전송했습니다.")
+      message.channel.send("메시지를 성공적으로 전송했습니다.")
     }catch(err) { 
       console.log(err)
       message.reply("오류 발생!")
@@ -51,7 +50,15 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
+  if (message.content === prefix+'프사') {
+    const target = message.mentions.members.first()
+    message.reply(message.author.displayAvatarURL());
+  }
+});
+
+client.on('message', message => {
   if(message.content === prefix+'초기화') {
+    if(!message.member.hasPermission('ADMINISTRATOR')) return;
     const embed = new Discord.MessageEmbed()
     .setDescription("펑!")
     .setImage("https://media.giphy.com/media/HhTXt43pk1I1W/giphy.gif")

@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 
 const Discord = require('discord.js');
+const { random } = require('mathjs');
 
 module.exports = {
     name: "코로나",
@@ -12,7 +13,7 @@ module.exports = {
 
         const noArgs = new Discord.MessageEmbed()
         .setTitle('Missing arguments')
-        .setColor(0xFF0000)
+        .setColor('RANDOM')
         .setDescription('You are missing some args')
         .setTimestamp()
 
@@ -29,6 +30,7 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`전세계 코로나-19 상황  🌎`)
                 .addField('확진자', confirmed)
+                .setColor('RANDOM')
                 .addField('치료됨', recovered)
                 .addField('사망', deaths)
 
@@ -46,6 +48,7 @@ module.exports = {
                 .setTitle(`**${countries}** 코로나-19 상황`)
                 .addField('확진', confirmed)
                 .addField('치료됨', recovered)
+                .setColor('RANDOM')
                 .addField('사망', deaths)
 
                 message.channel.send(embed)
